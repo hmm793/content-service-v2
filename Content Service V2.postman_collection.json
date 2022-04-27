@@ -1,0 +1,1362 @@
+{
+	"info": {
+		"_postman_id": "2da97358-feaf-4371-99df-20fba483f63e",
+		"name": "Content Service V2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Content Type",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/content_types",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"content_types"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get All Content Type Positive",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/content_types",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"content_types"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 14 Apr 2022 08:12:28 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "110"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"banner\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"section A\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"section B\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"section C\"\n    }\n]"
+				},
+				{
+					"name": "Get All Content Type Where There are no data",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/content_types",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"content_types"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 14 Apr 2022 08:20:02 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "30"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"There is no data\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Content",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "multipart/form-data",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\" : [\r\n        {\"image\":\"/api/v1/images/123123131/010fc75f56fd47b5a441ca4d578778ec-img_avatar-2022-04-21.png\", \"description\":\"this is a description 5\"},\r\n        {\"image\":\"/api/v1/images/123123131/1705aff1ba4f4d9b9581a946e9a1e30e-img_avatar-2022-04-21.png\", \"title\":\"this is title 2\"}\r\n    ],\r\n    \"name\" : \"Banner Depan\",\r\n    \"isPublished\" : 1,\r\n    \"contentTypeId\" : 1,\r\n    \"createdByName\" : \"john\",\r\n    \"createdById\" : 123123131\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/create_content",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"create_content"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Content",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "multipart/form-data",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\" : [\r\n        {\"image\":\"/api/v1/images/123123131/967661ed80564934825803d8e52a4d5a-img_avatar-2022-04-21.png\", \"description\":\"this is a description 5\"},\r\n        {\"image\":\"/api/v1/images/123123131/28e886c1252243d3ae446fbd38097a1a-img_avatar-2022-04-21.png\", \"title\":\"this is title 2\"}\r\n    ],\r\n    \"name\" : \"Banner Depan\",\r\n    \"isPublished\" : 1,\r\n    \"contentTypeId\" : 1,\r\n    \"createdByName\" : \"john\",\r\n    \"createdById\" : 123123131\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/create_content",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"create_content"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 21 Apr 2022 01:24:02 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "376"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"name\": \"Banner Depan\",\n    \"createdByName\": \"john\",\n    \"createdById\": 123123131,\n    \"isPublished\": 1,\n    \"data\": [\n        {\n            \"description\": \"this is a description 5\",\n            \"image\": \"/api/v1/asset/123123131/967661ed80564934825803d8e52a4d5a-img_avatar-2022-04-21.png\"\n        },\n        {\n            \"image\": \"/api/v1/asset/123123131/28e886c1252243d3ae446fbd38097a1a-img_avatar-2022-04-21.png\",\n            \"title\": \"this is title 2\"\n        }\n    ],\n    \"contentTypeId\": 1\n}"
+				},
+				{
+					"name": "Create Content Where Fields are empty",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "multipart/form-data",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/create_content",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"create_content"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 21 Apr 2022 01:26:50 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "653"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": [\n        \"Key: 'CreateContentInput.Name' Error:Field validation for 'Name' failed on the 'required' tag\",\n        \"Key: 'CreateContentInput.CreatedByName' Error:Field validation for 'CreatedByName' failed on the 'required' tag\",\n        \"Key: 'CreateContentInput.CreatedById' Error:Field validation for 'CreatedById' failed on the 'required' tag\",\n        \"Key: 'CreateContentInput.IsPublished' Error:Field validation for 'IsPublished' failed on the 'required' tag\",\n        \"Key: 'CreateContentInput.Data' Error:Field validation for 'Data' failed on the 'required' tag\",\n        \"Key: 'CreateContentInput.ContentTypeId' Error:Field validation for 'ContentTypeId' failed on the 'required' tag\"\n    ]\n}"
+				},
+				{
+					"name": "Create Content Where Content Type ID is not exist",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "multipart/form-data",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\" : [\r\n        {\"image\":\"/api/v1/images/123123131/1ac25947b59f4dc3968c58a5622e8ff6-img_avatar-2022-04-21.png\", \"description\":\"this is a description 5\"},\r\n        {\"image\":\"/api/v1/images/123123131/81beac2befa1456b88264546c82cbf00-img_avatar-2022-04-21.png\", \"title\":\"this is title 2\"}\r\n    ],\r\n    \"name\" : \"Banner Depan\",\r\n    \"isPublished\" : 1,\r\n    \"contentTypeId\" : 1346346346345645,\r\n    \"createdByName\" : \"john\",\r\n    \"createdById\" : 123123131\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/create_content",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"create_content"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 21 Apr 2022 01:32:13 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "137"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"ERROR: insert or update on table \\\"contents\\\" violates foreign key constraint \\\"fk_contents_content_type\\\" (SQLSTATE 23503)\"\n}"
+				},
+				{
+					"name": "Create Content Where one of required fields is empty",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "multipart/form-data",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"name\" : \"Banner Depan\",\r\n    \"isPublished\" : 1,\r\n    \"contentTypeId\" : 1346346346345645,\r\n    \"createdByName\" : \"john\",\r\n    \"createdById\" : 123123131\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/create_content",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"create_content"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 21 Apr 2022 01:33:08 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "109"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": [\n        \"Key: 'CreateContentInput.Data' Error:Field validation for 'Data' failed on the 'required' tag\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Content By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/get_content/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"get_content",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Content By ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/get_content/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"get_content",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 21 Apr 2022 01:33:42 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "505"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"name\": \"Banner Depan\",\n    \"createdByName\": \"john\",\n    \"createdById\": 123123131,\n    \"isPublished\": 1,\n    \"data\": [\n        {\n            \"image\": \"/api/v1/asset/123123131/967661ed80564934825803d8e52a4d5a-img_avatar-2022-04-21.png\",\n            \"description\": \"this is a description 5\"\n        },\n        {\n            \"image\": \"/api/v1/asset/123123131/28e886c1252243d3ae446fbd38097a1a-img_avatar-2022-04-21.png\",\n            \"title\": \"this is title 2\"\n        }\n    ],\n    \"contentTypeId\": 1,\n    \"updatedByName\": \"\",\n    \"updatedById\": 0,\n    \"createdAt\": \"2022-04-21T08:24:02.735896+07:00\",\n    \"updatedAt\": \"2022-04-21T08:24:02.736433+07:00\"\n}"
+				},
+				{
+					"name": "Get Content By ID Where Id is invalid",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/get_content/1as",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"get_content",
+								"1as"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 21 Apr 2022 01:34:12 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "63"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"strconv.ParseInt: parsing \\\"1as\\\": invalid syntax\"\n}"
+				},
+				{
+					"name": "Get Content By ID Where Id is not exist",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/get_content/1222",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"get_content",
+								"1222"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 21 Apr 2022 01:34:39 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "31"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Content Not Found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Content By ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\" : [\r\n        {\"image\":\"/api/v1/asset/123123131/dd1b31f07b9e4244a7fbede515448c9f-img_avatar-2022-04-21.png\", \"description\":\"this is a description 5\"},\r\n        {\"image\":\"/api/v1/images/123123131/05e9f8b886824801a15baa2066026ec8-img_avatar-2022-04-21.png\",\"subscribtion\":\"content 1\", \"description\":\"this is a description\"}\r\n    ],\r\n    \"name\" : \"Banner Depan Updated\",\r\n    \"isPublished\" : 1,\r\n    \"contentTypeId\" : 1,\r\n    \"updatedByName\" : \"john\",\r\n    \"UpdatedById\" : 283478293\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/update_content/13",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"update_content",
+						"13"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Content By ID",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\" : [\r\n        {\"image\":\"/api/v1/asset/123123131/dd1b31f07b9e4244a7fbede515448c9f-img_avatar-2022-04-21.png\", \"description\":\"this is a description 5\"},\r\n        {\"image\":\"/api/v1/images/123123131/05e9f8b886824801a15baa2066026ec8-img_avatar-2022-04-21.png\",\"subscribtion\":\"content 1\", \"description\":\"this is a description\"}\r\n    ],\r\n    \"name\" : \"Banner Depan Updated\",\r\n    \"isPublished\" : 1,\r\n    \"contentTypeId\" : 1,\r\n    \"updatedByName\" : \"john\",\r\n    \"UpdatedById\" : 283478293\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/update_content/13",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"update_content",
+								"13"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 21 Apr 2022 02:06:49 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "424"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 13,\n    \"name\": \"Banner Depan Updated\",\n    \"updatedByName\": \"john\",\n    \"updatedById\": 283478293,\n    \"isPublished\": 1,\n    \"data\": [\n        {\n            \"description\": \"this is a description 5\",\n            \"image\": \"/api/v1/asset/123123131/dd1b31f07b9e4244a7fbede515448c9f-img_avatar-2022-04-21.png\"\n        },\n        {\n            \"description\": \"this is a description\",\n            \"image\": \"/api/v1/asset/123123131/05e9f8b886824801a15baa2066026ec8-img_avatar-2022-04-21.png\",\n            \"subscribtion\": \"content 1\"\n        }\n    ],\n    \"contentTypeId\": 1\n}"
+				},
+				{
+					"name": "Update Content By ID Where all required fields are null",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/update_content/13",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"update_content",
+								"13"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 21 Apr 2022 02:07:35 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "653"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": [\n        \"Key: 'UpdateContentInput.Name' Error:Field validation for 'Name' failed on the 'required' tag\",\n        \"Key: 'UpdateContentInput.UpdatedByName' Error:Field validation for 'UpdatedByName' failed on the 'required' tag\",\n        \"Key: 'UpdateContentInput.UpdatedById' Error:Field validation for 'UpdatedById' failed on the 'required' tag\",\n        \"Key: 'UpdateContentInput.IsPublished' Error:Field validation for 'IsPublished' failed on the 'required' tag\",\n        \"Key: 'UpdateContentInput.Data' Error:Field validation for 'Data' failed on the 'required' tag\",\n        \"Key: 'UpdateContentInput.ContentTypeId' Error:Field validation for 'ContentTypeId' failed on the 'required' tag\"\n    ]\n}"
+				},
+				{
+					"name": "Update Content By ID Where one of required fields is null",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"name\" : \"Banner Depan Updated\",\r\n    \"isPublished\" : 1,\r\n    \"contentTypeId\" : 1,\r\n    \"updatedByName\" : \"john\",\r\n    \"UpdatedById\" : 283478293\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/update_content/13",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"update_content",
+								"13"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 21 Apr 2022 02:07:54 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "109"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": [\n        \"Key: 'UpdateContentInput.Data' Error:Field validation for 'Data' failed on the 'required' tag\"\n    ]\n}"
+				},
+				{
+					"name": "Update Content By ID Where id is not exist",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\" : [\r\n        {\"image\":\"/api/v1/asset/123123131/dd1b31f07b9e4244a7fbede515448c9f-img_avatar-2022-04-21.png\", \"description\":\"this is a description 5\"},\r\n        {\"image\":\"/api/v1/images/123123131/05e9f8b886824801a15baa2066026ec8-img_avatar-2022-04-21.png\",\"subscribtion\":\"content 1\", \"description\":\"this is a description\"}\r\n    ],\r\n    \"name\" : \"Banner Depan Updated\",\r\n    \"isPublished\" : 1,\r\n    \"contentTypeId\" : 1,\r\n    \"updatedByName\" : \"john\",\r\n    \"UpdatedById\" : 283478293\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/update_content/131212",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"update_content",
+								"131212"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 21 Apr 2022 02:08:12 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "31"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Content Not Found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get All Content",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/contents?limit=3&offset=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"contents"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "3"
+						},
+						{
+							"key": "offset",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get All Content",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/contents",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"contents"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "3",
+									"disabled": true
+								},
+								{
+									"key": "offset",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 21 Apr 2022 01:35:17 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1599"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Banner Depan\",\n        \"createdByName\": \"john\",\n        \"createdById\": 123123131,\n        \"isPublished\": 1,\n        \"data\": [\n            {\n                \"image\": \"/api/v1/asset/123123131/967661ed80564934825803d8e52a4d5a-img_avatar-2022-04-21.png\",\n                \"description\": \"this is a description 5\"\n            },\n            {\n                \"image\": \"/api/v1/asset/123123131/28e886c1252243d3ae446fbd38097a1a-img_avatar-2022-04-21.png\",\n                \"title\": \"this is title 2\"\n            }\n        ],\n        \"contentTypeId\": 1,\n        \"contentTypeName\": \"\",\n        \"updatedByName\": \"\",\n        \"updatedById\": 0,\n        \"createdAt\": \"2022-04-21T08:24:02.735896+07:00\",\n        \"updatedAt\": \"2022-04-21T08:24:02.736433+07:00\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Banner Depan\",\n        \"createdByName\": \"john\",\n        \"createdById\": 123123131,\n        \"isPublished\": 1346346346345645,\n        \"data\": [\n            {\n                \"image\": \"/api/v1/asset/123123131/396676a6d7244cbba74a2f6e21e48ddd-img_avatar-2022-04-21.png\",\n                \"description\": \"this is a description 5\"\n            },\n            {\n                \"image\": \"/api/v1/asset/123123131/956d6466274b4b0a9dc601f7154b058e-img_avatar-2022-04-21.png\",\n                \"title\": \"this is title 2\"\n            }\n        ],\n        \"contentTypeId\": 1,\n        \"contentTypeName\": \"\",\n        \"updatedByName\": \"\",\n        \"updatedById\": 0,\n        \"createdAt\": \"2022-04-21T08:29:50.330731+07:00\",\n        \"updatedAt\": \"2022-04-21T08:29:50.331327+07:00\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Banner Depan\",\n        \"createdByName\": \"john\",\n        \"createdById\": 123123131,\n        \"isPublished\": 1,\n        \"data\": [\n            {\n                \"image\": \"/api/v1/images/123123131/1ac25947b59f4dc3968c58a5622e8ff6-img_avatar-2022-04-21.png\",\n                \"description\": \"this is a description 5\"\n            },\n            {\n                \"image\": \"/api/v1/images/123123131/81beac2befa1456b88264546c82cbf00-img_avatar-2022-04-21.png\",\n                \"title\": \"this is title 2\"\n            }\n        ],\n        \"contentTypeId\": 1,\n        \"contentTypeName\": \"\",\n        \"updatedByName\": \"\",\n        \"updatedById\": 0,\n        \"createdAt\": \"2022-04-21T08:31:54.798493+07:00\",\n        \"updatedAt\": \"2022-04-21T08:31:54.799381+07:00\"\n    }\n]"
+				},
+				{
+					"name": "Get All Content With Limit = 3",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/contents?limit=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"contents"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "3"
+								},
+								{
+									"key": "offset",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 21 Apr 2022 01:36:14 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1599"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Banner Depan\",\n        \"createdByName\": \"john\",\n        \"createdById\": 123123131,\n        \"isPublished\": 1,\n        \"data\": [\n            {\n                \"image\": \"/api/v1/asset/123123131/967661ed80564934825803d8e52a4d5a-img_avatar-2022-04-21.png\",\n                \"description\": \"this is a description 5\"\n            },\n            {\n                \"image\": \"/api/v1/asset/123123131/28e886c1252243d3ae446fbd38097a1a-img_avatar-2022-04-21.png\",\n                \"title\": \"this is title 2\"\n            }\n        ],\n        \"contentTypeId\": 1,\n        \"contentTypeName\": \"\",\n        \"updatedByName\": \"\",\n        \"updatedById\": 0,\n        \"createdAt\": \"2022-04-21T08:24:02.735896+07:00\",\n        \"updatedAt\": \"2022-04-21T08:24:02.736433+07:00\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Banner Depan\",\n        \"createdByName\": \"john\",\n        \"createdById\": 123123131,\n        \"isPublished\": 1346346346345645,\n        \"data\": [\n            {\n                \"image\": \"/api/v1/asset/123123131/396676a6d7244cbba74a2f6e21e48ddd-img_avatar-2022-04-21.png\",\n                \"description\": \"this is a description 5\"\n            },\n            {\n                \"image\": \"/api/v1/asset/123123131/956d6466274b4b0a9dc601f7154b058e-img_avatar-2022-04-21.png\",\n                \"title\": \"this is title 2\"\n            }\n        ],\n        \"contentTypeId\": 1,\n        \"contentTypeName\": \"\",\n        \"updatedByName\": \"\",\n        \"updatedById\": 0,\n        \"createdAt\": \"2022-04-21T08:29:50.330731+07:00\",\n        \"updatedAt\": \"2022-04-21T08:29:50.331327+07:00\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Banner Depan\",\n        \"createdByName\": \"john\",\n        \"createdById\": 123123131,\n        \"isPublished\": 1,\n        \"data\": [\n            {\n                \"image\": \"/api/v1/images/123123131/1ac25947b59f4dc3968c58a5622e8ff6-img_avatar-2022-04-21.png\",\n                \"description\": \"this is a description 5\"\n            },\n            {\n                \"image\": \"/api/v1/images/123123131/81beac2befa1456b88264546c82cbf00-img_avatar-2022-04-21.png\",\n                \"title\": \"this is title 2\"\n            }\n        ],\n        \"contentTypeId\": 1,\n        \"contentTypeName\": \"\",\n        \"updatedByName\": \"\",\n        \"updatedById\": 0,\n        \"createdAt\": \"2022-04-21T08:31:54.798493+07:00\",\n        \"updatedAt\": \"2022-04-21T08:31:54.799381+07:00\"\n    }\n]"
+				},
+				{
+					"name": "Get All Content With Limit = 3 and offset = 1",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/contents?limit=3&offset=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"contents"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "3"
+								},
+								{
+									"key": "offset",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 21 Apr 2022 01:36:49 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1072"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 2,\n        \"name\": \"Banner Depan\",\n        \"createdByName\": \"john\",\n        \"createdById\": 123123131,\n        \"isPublished\": 1346346346345645,\n        \"data\": [\n            {\n                \"image\": \"/api/v1/asset/123123131/396676a6d7244cbba74a2f6e21e48ddd-img_avatar-2022-04-21.png\",\n                \"description\": \"this is a description 5\"\n            },\n            {\n                \"image\": \"/api/v1/asset/123123131/956d6466274b4b0a9dc601f7154b058e-img_avatar-2022-04-21.png\",\n                \"title\": \"this is title 2\"\n            }\n        ],\n        \"contentTypeId\": 1,\n        \"contentTypeName\": \"\",\n        \"updatedByName\": \"\",\n        \"updatedById\": 0,\n        \"createdAt\": \"2022-04-21T08:29:50.330731+07:00\",\n        \"updatedAt\": \"2022-04-21T08:29:50.331327+07:00\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Banner Depan\",\n        \"createdByName\": \"john\",\n        \"createdById\": 123123131,\n        \"isPublished\": 1,\n        \"data\": [\n            {\n                \"image\": \"/api/v1/images/123123131/1ac25947b59f4dc3968c58a5622e8ff6-img_avatar-2022-04-21.png\",\n                \"description\": \"this is a description 5\"\n            },\n            {\n                \"image\": \"/api/v1/images/123123131/81beac2befa1456b88264546c82cbf00-img_avatar-2022-04-21.png\",\n                \"title\": \"this is title 2\"\n            }\n        ],\n        \"contentTypeId\": 1,\n        \"contentTypeName\": \"\",\n        \"updatedByName\": \"\",\n        \"updatedById\": 0,\n        \"createdAt\": \"2022-04-21T08:31:54.798493+07:00\",\n        \"updatedAt\": \"2022-04-21T08:31:54.799381+07:00\"\n    }\n]"
+				},
+				{
+					"name": "Get All Content Where Offset is out of range",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/contents?limit=3&offset=100",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"contents"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "3"
+								},
+								{
+									"key": "offset",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 21 Apr 2022 01:38:23 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "36"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Offset is out of range\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Content",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/delete_content/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"delete_content",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Content Where Id is not exist",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/delete_content/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"delete_content",
+								"1"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 14 Apr 2022 08:56:59 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "31"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Content Not Found\"\n}"
+				},
+				{
+					"name": "Delete Content",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/delete_content/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"delete_content",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 14 Apr 2022 08:57:15 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "17"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"rowAffected\": 1\n}"
+				},
+				{
+					"name": "Delete Content Where Id is not valid",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/delete_content/2ssdsdsd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"delete_content",
+								"2ssdsdsd"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 14 Apr 2022 08:57:31 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "68"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"strconv.ParseInt: parsing \\\"2ssdsdsd\\\": invalid syntax\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Asset",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "fileName",
+							"type": "file",
+							"src": "/C:/Users/DRAGON/Downloads/Video/Creative short film- Wonderful little world.mp4"
+						},
+						{
+							"key": "userId",
+							"value": "123123132",
+							"type": "text"
+						},
+						{
+							"key": "createdByName",
+							"value": "Test My name is bla bla",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/upload_images",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"upload_images"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Asset",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "fileName",
+									"type": "file",
+									"src": "/C:/Users/DRAGON/Downloads/img_avatar.png"
+								},
+								{
+									"key": "userId",
+									"value": "123123131",
+									"type": "text"
+								},
+								{
+									"key": "createdByName",
+									"value": "Test My name is bla bla",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/upload_images",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"upload_images"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 21 Apr 2022 01:13:43 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "95"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"image\": \"/api/v1/images/123123131/ecd2faf423f146b28b7810061739d040-img_avatar-2022-04-21.png\"\n}"
+				},
+				{
+					"name": "Create Asset where fileName is empty",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "fileName",
+									"type": "file",
+									"src": "/C:/Users/DRAGON/Downloads/img_avatar.png",
+									"disabled": true
+								},
+								{
+									"key": "userId",
+									"value": "123123131",
+									"type": "text"
+								},
+								{
+									"key": "createdByName",
+									"value": "Test My name is bla bla",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/upload_images",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"upload_images"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 21 Apr 2022 01:20:47 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "60"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"request Content-Type isn't multipart/form-data\"\n}"
+				},
+				{
+					"name": "Create Asset where idUser is empty",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "fileName",
+									"type": "file",
+									"src": "/C:/Users/DRAGON/Downloads/img_avatar.png"
+								},
+								{
+									"key": "userId",
+									"value": "123123131",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "createdByName",
+									"value": "Test My name is bla bla",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/upload_images",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"upload_images"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 21 Apr 2022 01:21:34 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "30"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Id User is empty\"\n}"
+				}
+			]
+		}
+	]
+}
